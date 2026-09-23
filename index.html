@@ -6,15 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    <body style="background: var(--bg-light); color: var(--text-dark);">
-  <h1 style="color: var(--gold); text-align:center; margin-top:50px;">
-    Energieberatung NRW
-  </h1>
-
-  <p style="text-align:center;">
-    Deine Website funktioniert – du siehst jetzt diesen Text!
-  </p>
-</body>
     :root {
       --bg-dark: #0f1c2e;
       --bg-light: #f5f7fb;
@@ -44,7 +35,7 @@
       color: inherit;
     }
 
-    / HEADER /
+    /* HEADER */
     header {
       background: var(--bg-dark);
       color: var(--white);
@@ -63,6 +54,7 @@
       gap: 14px;
       font-weight: 600;
       letter-spacing: 0.05em;
+      font-size: 1.1rem;
     }
 
     .logo-img {
@@ -97,20 +89,7 @@
       width: 100%;
     }
 
-    .nav-cta {
-      padding: 8px 16px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      font-weight: 500;
-    }
-
-    .nav-cta:hover {
-      background: var(--gold);
-      color: var(--bg-dark);
-    }
-
-    / LAYOUT /
+    /* LAYOUT */
     main {
       max-width: 1100px;
       margin: 0 auto;
@@ -121,7 +100,7 @@
       margin-bottom: 48px;
     }
 
-    / HERO /
+    /* HERO */
     .hero {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -196,55 +175,7 @@
       background: rgba(255, 255, 255, 0.08);
     }
 
-    .hero-meta {
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .hero-meta span {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-right: 12px;
-    }
-
-    .hero-card {
-      background: rgba(15, 28, 46, 0.9);
-      border-radius: 14px;
-      padding: 18px;
-      border: 1px solid rgba(212, 169, 74, 0.4);
-    }
-
-    .hero-card h2 {
-      font-size: 1rem;
-      margin-bottom: 10px;
-      color: var(--gold);
-    }
-
-    .hero-card ul {
-      list-style: none;
-      font-size: 0.9rem;
-    }
-
-    .hero-card li {
-      margin-bottom: 6px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .hero-badge {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      border: 1px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-    }
-
-    / 3-SÄULEN /
+    /* 3-SÄULEN */
     .pill-section-title {
       display: inline-block;
       padding: 4px 10px;
@@ -294,363 +225,8 @@
       color: #5a6475;
     }
 
-    / TARIFCHECK /
+    /* TARIFCHECK */
     .tarifcheck {
       background: #ffffff;
       border-radius: 18px;
       padding: 22px 20px;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 12px 26px rgba(15, 28, 46, 0.08);
-    }
-
-    .tarif-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.85rem;
-    }
-
-    .form-group label {
-      font-weight: 500;
-      color: var(--accent-blue);
-    }
-
-    .form-group input,
-    .form-group select {
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border-soft);
-      font-size: 0.9rem;
-      outline: none;
-      transition: border 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 2px rgba(212, 169, 74, 0.25);
-    }
-
-    .tarif-footer {
-      margin-top: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      font-size: 0.8rem;
-      color: #5a6475;
-    }
-
-    .tarif-footer .btn-primary {
-      box-shadow: none;
-    }
-
-    / UPLOAD /
-    .upload-section {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 22px;
-      align-items: flex-start;
-    }
-
-    .upload-box {
-      border-radius: 16px;
-      border: 2px dashed var(--gold);
-      background: #fffdf6;
-      padding: 18px;
-      text-align: center;
-      cursor: pointer;
-      transition: background 0.15s ease, border-color 0.15s ease;
-    }
-
-    .upload-box:hover {
-      background: #fff7e3;
-      border-color: var(--green);
-    }
-
-    .upload-icon {
-      font-size: 2rem;
-      margin-bottom: 8px;
-      color: var(--gold);
-    }
-
-    .upload-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .upload-sub {
-      font-size: 0.8rem;
-      color: #7a8294;
-      margin-bottom: 10px;
-    }
-
-    .upload-hint {
-      font-size: 0.75rem;
-      color: #7a8294;
-    }
-
-    .upload-input {
-      display: none;
-    }
-
-    .upload-status {
-      margin-top: 10px;
-      font-size: 0.8rem;
-      color: var(--accent-blue);
-    }
-
-    .upload-status.error {
-      color: #c0392b;
-    }
-
-    .upload-side {
-      font-size: 0.85rem;
-      color: #5a6475;
-    }
-
-    .upload-side h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: var(--accent-blue);
-    }
-
-    .upload-side ul {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .upload-side li {
-      margin-bottom: 6px;
-      display: flex;
-      gap: 6px;
-    }
-
-    .upload-side li::before {
-      content: "•";
-      color: var(--gold);
-    }
-
-    / BEWERTUNGEN /
-    .reviews {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .review-card {
-      background: #ffffff;
-      border-radius: 14px;
-      padding: 14px;
-      border: 1px solid var(--border-soft);
-      font-size: 0.85rem;
-      color: #5a6475;
-    }
-
-    .review-stars {
-      color: var(--gold);
-      margin-bottom: 6px;
-      font-size: 0.9rem;
-    }
-
-    .review-name {
-      margin-top: 8px;
-      font-weight: 500;
-      color: var(--accent-blue);
-    }
-
-    / ÜBER UNS /
-    .about {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 18px;
-      border: 1px solid var(--border-soft);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: center;
-    }
-
-    .about p {
-      font-size: 0.9rem;
-      color: #5a6475;
-    }
-
-    .about-highlight {
-      font-size: 0.85rem;
-      color: var(--accent-blue);
-      margin-bottom: 8px;
-    }
-
-    .about-tag {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      font-size: 0.75rem;
-      margin-right: 6px;
-      margin-bottom: 6px;
-      color: #5a6475;
-      background: #f8fafc;
-    }
-
-    / KONTAKT /
-    .contact {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 10px 22px rgba(15, 28, 46, 0.06);
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    .contact-form {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .contact-form .form-group-full {
-      grid-column: 1 / -1;
-    }
-
-    .contact-actions {
-      margin-top: 12px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      font-size: 0.85rem;
-    }
-
-    .btn-outline {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: #f8fafc;
-      cursor: pointer;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      background: #fffdf6;
-    }
-
-    .contact-info {
-      font-size: 0.85rem;
-      color: #5a6475;
-    }
-
-    .contact-info h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-      color: var(--accent-blue);
-    }
-
-    .contact-info p {
-      margin-bottom: 6px;
-    }
-
-    .qr-img {
-      height: 140px;
-      width: auto;
-      margin-top: 12px;
-      border: 2px solid var(--gold);
-      border-radius: 12px;
-      padding: 6px;
-      background: #fff;
-    }
-
-    / FOOTER /
-    footer {
-      background: var(--bg-dark);
-      color: var(--white);
-      padding: 20px 40px;
-      font-size: 0.8rem;
-      margin-top: 40px;
-    }
-
-    .footer-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .footer-logo-img {
-      height: 48px;
-      width: auto;
-      margin-bottom: 8px;
-      border-radius: 50%;
-    }
-
-    .footer-logo {
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer-links a:hover {
-      color: var(--gold);
-    }
-
-    .footer-note {
-      margin-top: 12px;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    / RESPONSIVE /
-    @media (max-width: 900px) {
-      .hero,
-      .upload-section,
-      .about,
-      .contact {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .three-columns,
-      .reviews {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      header {
-        padding: 12px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      nav {
-        flex-wrap: wrap;
-      }
-
-      .hero {
-        padding: 24px 18px;
-      }
-
-      .tarif-grid,
-      .contact-form {
-        grid-template-columns: minmax(0
