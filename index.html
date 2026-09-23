@@ -1,1 +1,790 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Energieberatung‑NRW – Strom & Gas sparen statt zahlen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <style>
+    :root {
+      --bg-dark: #0f1c2e;
+      --bg-light: #f5f7fb;
+      --gold: #d4a94a;
+      --green: #3aa65a;
+      --white: #ffffff;
+      --text-dark: #1f2933;
+      --accent-blue: #1b3b6b;
+      --border-soft: #dde3f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 16px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 1.1rem;
+    }
+
+    .logo-img {
+      height: 64px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      font-size: 0.95rem;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* LAYOUT */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 16px 60px;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: center;
+      padding: 32px 24px;
+      border-radius: 18px;
+      background: radial-gradient(circle at top left, #1b3b6b 0, #0f1c2e 55%);
+      color: var(--white);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 18px;
+    }
+
+    .hero-highlight {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(212, 169, 74, 0.6);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      color: var(--gold);
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--bg-dark);
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.95rem;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+/* 3-SÄULEN */
+    .pill-section-title {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      color: var(--accent-blue);
+      background: #ffffff;
+    }
+
+    .section-heading {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .section-sub {
+      font-size: 0.95rem;
+      color: #5a6475;
+      margin-bottom: 18px;
+    }
+
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 8px 18px rgba(15, 28, 46, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--accent-blue);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #5a6475;
+    }
+
+    /* TARIFCHECK */
+    .tarifcheck {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 22px 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 26px rgba(15, 28, 46, 0.08);
+    }
+
+    .tarif-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.85rem;
+    }
+
+    .form-group label {
+      font-weight: 500;
+      color: var(--accent-blue);
+    }
+
+    .form-group input,
+    .form-group select {
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px rgba(212, 169, 74, 0.25);
+    }
+
+    .tarif-footer {
+      margin-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-size: 0.8rem;
+      color: #5a6475;
+    }
+
+    /* UPLOAD */
+    .upload-section {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+      align-items: flex-start;
+    }
+
+    .upload-box {
+      border-radius: 16px;
+      border: 2px dashed var(--gold);
+      background: #fffdf6;
+      padding: 18px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .upload-box:hover {
+      background: #fff7e3;
+      border-color: var(--green);
+    }
+
+    .upload-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: var(--gold);
+    }
+
+    .upload-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .upload-sub {
+      font-size: 0.8rem;
+      color: #7a8294;
+      margin-bottom: 10px;
+    }
+
+    .upload-hint {
+      font-size: 0.75rem;
+      color: #7a8294;
+    }
+
+    .upload-input {
+      display: none;
+    }
+
+    .upload-status {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+    }
+
+    .upload-status.error {
+      color: #c0392b;
+    }
+
+    /* BEWERTUNGEN */
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 14px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.85rem;
+      color: #5a6475;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+    }
+
+    .review-name {
+      margin-top: 8px;
+      font-weight: 500;
+      color: var(--accent-blue);
+    }
+
+    /* ÜBER UNS */
+    .about {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 18px;
+      border: 1px solid var(--border-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .about p {
+      font-size: 0.9rem;
+      color: #5a6475;
+    }
+
+    .about-highlight {
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    .about-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      font-size: 0.75rem;
+      margin-right: 6px;
+      margin-bottom: 6px;
+      color: #5a6475;
+      background: #f8fafc;
+    }
+
+    /* KONTAKT */
+    .contact {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 10px 22px rgba(15, 28, 46, 0.06);
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .contact-form {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .contact-form .form-group-full {
+      grid-column: 1 / -1;
+    }
+
+    .contact-actions {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.85rem;
+    }
+
+    .btn-outline {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: #f8fafc;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: #fffdf6;
+    }
+
+    .contact-info {
+      font-size: 0.85rem;
+      color: #5a6475;
+    }
+
+    .contact-info h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: var(--accent-blue);
+    }
+
+    .contact-info p {
+      margin-bottom: 6px;
+    }
+
+    .qr-img {
+      height: 140px;
+      width: auto;
+      margin-top: 12px;
+      border: 2px solid var(--gold);
+      border-radius: 12px;
+      padding: 6px;
+      background: #fff;
+      }/* FOOTER */
+    footer {
+      background: var(--bg-dark);
+      color: var(--white);
+      padding: 20px 40px;
+      font-size: 0.8rem;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .footer-logo-img {
+      height: 48px;
+      width: auto;
+      margin-bottom: 8px;
+      border-radius: 50%;
+    }
+
+    .footer-logo {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-note {
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero,
+      .upload-section,
+      .about,
+      .contact {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .three-columns,
+      .reviews {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding: 24px 18px;
+      }
+
+      .tarif-grid,
+      .contact-form {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="logo.png" class="logo-img" alt="Energieberatung NRW Logo">
+      Energieberatung‑NRW
+    </div>
+
+    <nav>
+      <a href="#start">Startseite</a>
+      <a href="#tarifcheck">Tarifcheck</a>
+      <a href="#upload">Upload</a>
+      <a href="#bewertungen">Bewertungen</a>
+      <a href="#ueberuns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="start" class="hero">
+      <div>
+        <span class="hero-highlight">Strom & Gas sparen statt zahlen</span>
+        <h1>Energieberatung‑NRW</h1>
+        <p>Wir helfen Haushalten & Unternehmen in NRW, ihre Energiekosten nachhaltig zu senken – fair, transparent und unabhängig.</p>
+
+        <div class="hero-buttons">
+          <button class="btn-primary">Jetzt Tarifcheck starten</button>
+          <button class="btn-secondary">Beratung anfragen</button>
+        </div>
+
+        <div class="hero-meta">
+          <span>✓ 100% unabhängig</span>
+          <span>✓ NRW‑weit</span>
+          <span>✓ Persönliche Beratung</span>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h2>Ihre Vorteile</h2>
+        <ul>
+          <li><span class="hero-badge">✓</span> Faire & transparente Beratung</li>
+          <li><span class="hero-badge">✓</span> Schnelle Tarifoptimierung</li>
+          <li><span class="hero-badge">✓</span> Persönliche Betreuung</li>
+          <li><span class="hero-badge">✓</span> NRW‑weit verfügbar</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3-SÄULEN -->
+    <section>
+      <span class="pill-section-title">Unsere 3 Säulen</span>
+      <h2 class="section-heading">So senken wir Ihre Energiekosten</h2>
+      <p class="section-sub">Wir kombinieren Analyse, Tarifoptimierung und persönliche Beratung.</p>
+
+      <div class="three-columns">
+        <div class="card">
+          <h3>1. Analyse</h3>
+          <p>Wir prüfen Ihre aktuellen Strom‑ & Gasverträge und identifizieren Einsparpotenziale.</p>
+        </div>
+
+        <div class="card">
+          <h3>2. Tarifcheck</h3>
+          <p>Wir vergleichen alle relevanten Anbieter und finden den besten Tarif für Sie.</p>
+        </div>
+
+        <div class="card">
+          <h3>3. Beratung</h3>
+          <p>Wir begleiten Sie persönlich – von der Optimierung bis zur Umstellung.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFCHECK -->
+    <section id="tarifcheck" class="tarifcheck">
+      <h2 class="section-heading">Tarifcheck starten</h2>
+      <p class="section-sub">Geben Sie Ihre Daten ein – wir prüfen Ihren Tarif.</p>
+
+      <div class="tarif-grid">
+        <div class="form-group">
+          <label>PLZ</label>
+          <input type="text" placeholder="z. B. 44623">
+        </div>
+
+        <div class="form-group">
+          <label>Ort</label>
+          <input type="text" placeholder="z. B. Herne">
+        </div>
+
+        <div class="form-group">
+          <label>Stromverbrauch (kWh)</label>
+          <input type="number" placeholder="z. B. 2500">
+        </div>
+
+        <div class="form-group">
+          <label>Gasverbrauch (kWh)</label>
+          <input type="number" placeholder="z. B. 12000">
+        </div>
+      </div>
+
+      <div class="tarif-footer">
+        <button class="btn-primary">Tarifcheck durchführen</button>
+        <span>Ihre Daten werden nicht gespeichert.</span>
+      </div>
+    </section>
+
+    <!-- UPLOAD -->
+    <section id="upload" class="upload-section">
+      <label class="upload-box">
+        <div class="upload-icon">📄</div>
+        <div class="upload-title">Vertragsunterlagen hochladen</div>
+        <div class="upload-sub">PDF, JPG oder PNG</div>
+        <input type="file" class="upload-input">
+        <div class="upload-hint">Max. 10 MB</div>
+      </label>
+
+      <div class="upload-side">
+        <h3>Warum hochladen?</h3>
+        <ul>
+          <li>Schnellere Analyse</li>
+          <li>Exakte Tarifbewertung</li>
+          <li>Individuelle Empfehlungen</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BEWERTUNGEN -->
+    <section id="bewertungen">
+      <h2 class="section-heading">Kundenbewertungen</h2>
+      <p class="section-sub">Das sagen Kunden über Energieberatung‑NRW.</p>
+
+      <div class="reviews">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          „Sehr kompetent und freundlich. Habe über 400 € im Jahr gespart.“
+          <div class="review-name">– Markus H.</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          „Schnelle Analyse, klare Empfehlung. Top Service.“
+          <div class="review-name">– Sarah K.</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          „Endlich ein Anbieter, der unabhängig berät.“
+          <div class="review-name">– Thomas W.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ÜBER UNS -->
+    <section id="ueberuns" class="about">
+      <div>
+        <span class="about-highlight">Über Energieberatung‑NRW</span>
+        <p>Wir sind ein unabhängiges Beratungsunternehmen aus NRW und helfen Haushalten & Firmen, ihre Energiekosten nachhaltig zu senken.</p>
+
+        <div>
+          <span class="about-tag">Unabhängig</span>
+          <span class="about-tag">Transparent</span>
+          <span class="about-tag">NRW‑weit</span>
+        </div>
+      </div>
+
+      <img src="logo.png" class="qr-img" alt="Logo">
+    </section>
+
+    <!-- KONTAKT -->
+    <section id="kontakt" class="contact">
+      <div>
+        <h2 class="section-heading">Kontakt</h2>
+
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Ihr Name">
+          </div>
+
+          <div class="form-group">
+            <label>E‑Mail</label>
+            <input type="email" placeholder="Ihre E‑Mail">
+          </div>
+
+          <div class="form-group-full form-group">
+            <label>Nachricht</label>
+            <input type="text" placeholder="Ihre Nachricht">
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <button class="btn-primary">Absenden</button>
+          <button class="btn-outline">Zurücksetzen</button>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <h3>Adresse</h3>
+        <p>Herne, Nordrhein‑Westfalen</p>
+        <p>E‑Mail: info@energieberatung‑nrw.de</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <img src="logo.png" class="footer-logo-img" alt="Logo">
+        <div class="footer-logo">Energieberatung‑NRW</div>
+        <div class="footer-note">Strom & Gas – sparen statt zahlen</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#start">Startseite</a>
+        <a href="#tarifcheck">Tarifcheck</a>
+        <a href="#upload">Upload</a>
+      </div>
+
+      <div class="footer-links">
+        <a href="#bewertungen">Bewertungen</a>
+        <a href="#ueberuns">Über uns</a>
+        <a href="#kontakt">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
